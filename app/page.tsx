@@ -1,157 +1,68 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpLeft, BarChart3, Check, ChevronLeft, FileText, Layers3, LockKeyhole, ShieldCheck, Sparkles, WalletCards } from "lucide-react";
-import { Header } from "./components/Header";
+import { ArrowLeft, ArrowUpRight, Building2, ChartNoAxesCombined, Play, ShieldCheck, UsersRound } from "lucide-react";
 import { Footer } from "./components/Footer";
-import { BlockArt } from "./components/BlockArt";
-import { PropertyCard } from "./components/PropertyCard";
-import { KhestLogo } from "./components/KhestLogo";
-import { InvestmentCalculator } from "./components/InvestmentCalculator";
-import { AutoInvestPanel } from "./components/AutoInvestPanel";
-import { properties, formatCompactToman, formatToman, legalDisclaimerShort } from "@/lib/data";
+import { Header } from "./components/Header";
+
+const opportunities = [
+  { title: "مجتمع مسکونی آفتاب", place: "تهران، سعادت‌آباد", rate: "٪۲۸", progress: 72, image: "/projects/khest-hero.png", href: "/projects/shahrak-west" },
+  { title: "بازسازی نارون", place: "تهران، یوسف‌آباد", rate: "٪۲۳", progress: 100, image: "/projects/khest-exterior.png", href: "/projects/narvan-renovation" },
+  { title: "مارینا رزیدنس", place: "کیش، مرجان", rate: "٪۳۱", progress: 48, image: "/projects/khest-interior.png", href: "/projects/kish-marina" },
+];
 
 export default function HomePage() {
-  const featured = properties[0];
   return (
     <>
       <Header />
-      <main>
-        <section className="hero-wrap">
-          <div className="hero shell">
-            <div className="hero-copy">
-              <span className="kicker">توکن‌سازی ملک، با یک نشان روشن</span>
-              <h1>
-                <em>خشت</em>
-                <br />
-                   پلتفرم هوشمند سرمایه گذاری و تامین املاک در ایران
-              </h1>
-              <p className="hero-lead">
-                خشت یک تجربهٔ روان و شفاف برای دیدن، مقایسه و مدیریت «سرمایه گذاری در املاک» است؛ هر ملک به واحدهای دیجیتال بنام «خشت» تقسیم می‌شود
-                و پلتفرم مسیر ارزش‌گذاری تا خروج را شفاف نشان می‌دهد.
-              </p>
-              <div className="hero-cta">
-                <Link href="/projects" className="button button-red">کشف پروژه‌ها <ArrowLeft size={17} /></Link>
-                <Link href="/how-it-works" className="inline-link">مدل خشت را ببین <ChevronLeft size={17} /></Link>
-              </div>
-              <div className="hero-trust-row">
-                <span><ShieldCheck size={15} /> داده‌ها نمایشی‌اند</span>
-                <span><FileText size={15} /> گزارش و سند کنار هر پروژه</span>
-              </div>
+      <main className="luxe-home">
+        <section className="luxe-hero shell">
+          <div className="luxe-hero-copy luxe-reveal">
+            <p className="luxe-eyebrow">سرمایه‌گذاری خرد، ساختن فردا</p>
+            <h1>با <em>خشت</em>،<br />در ساختن فردا شریک باشید</h1>
+            <p className="luxe-lead">سرمایه‌گذاری خرد در املاک و مستغلات؛ امن، شفاف و در دسترس همه. با خشت، سهمی از دارایی‌های ارزشمند آینده داشته باشید.</p>
+            <div className="luxe-hero-actions">
+              <Link href="/projects" className="luxe-primary-button luxe-large">شروع سرمایه‌گذاری <ArrowLeft size={18} /></Link>
+              <Link href="/how-it-works" className="luxe-video-button"><span><Play size={15} fill="currentColor" /></span>تماشای ویدیو</Link>
             </div>
-            <div className="hero-visual-wrap">
-              <div className="hero-logo-orbit"><KhestLogo compact /></div>
-              <div className="hero-card">
-                <div className="hero-card-top">
-                  <span> </span>
-                  <span className="live-dot">عرضهٔ اولیه</span>
-                </div>
-                <div className="hero-art">
-                  <BlockArt image={featured.image} accent={featured.accent} alt={`نمای معماری ${featured.name}`} />
-                </div>
-                <div className="hero-card-bottom">
-                  <div className="hero-stat"><span>{featured.location}</span><strong>{featured.tokenSymbol}</strong></div>
-                  <div className="hero-stat"><span>قیمت هر توکن</span><strong className="red">{formatToman(featured.tokenPriceCurrent)}</strong><small>تومان</small></div>
-                  <div className="hero-stat"><span>تکمیل تأمین</span><strong>{featured.progress}%</strong><small>گزارش دوره‌ای</small></div>
-                </div>
-              </div>
-              <div className="floating-metric"><span>ارزش‌گذاری نمونه</span><strong>{formatCompactToman(featured.projectValuation)}</strong><small>{featured.valuationDate} · گزارش دوره‌ای</small></div>
+            <div className="luxe-trust-list">
+              <span><b><ShieldCheck size={18} /></b>دارای مجوز رسمی</span>
+              <span><b><ChartNoAxesCombined size={18} /></b>شفاف و قابل پیگیری</span>
+              <span><b><UsersRound size={18} /></b>سرمایه‌گذاری با مبالغ کم</span>
             </div>
           </div>
-        </section>خانه‌ کار
 
-        <section className="proof-strip">
-          <div className="proof-grid shell">
-            <div className="proof-item"><strong>توکن خشت</strong><span>واحد دیجیتال شبیه‌سازی‌شده</span></div>
-            <div className="proof-item"><strong>توکن طلا</strong><span>نگهداری پیش از شروع پروژه</span></div>
-            <div className="proof-item"><strong>۲۴ ماه</strong><span>طرح نگهداری بلندمدت نمونه</span></div>
-            <div className="proof-item"><strong>۱ میلیارد</strong><span>حداقل معاملهٔ ثانویه</span></div>
+          <div className="luxe-hero-media luxe-reveal luxe-delay-1">
+            <Image src="/projects/khesht-luxe-hero.png" alt="نمای صفحه اول پلتفرم خشت و ساختمان پروژه" fill priority sizes="(max-width: 900px) 100vw, 56vw" />
+            <div className="luxe-hero-shade" />
+            <div className="luxe-orbit luxe-orbit-a" /><div className="luxe-orbit luxe-orbit-b" />
+            <aside className="luxe-roi-card">
+              <span>بازدهی سالانه تخمینی</span>
+              <strong>٪۲۴٫۵ <ArrowUpRight size={24} /></strong>
+              <svg viewBox="0 0 240 84" role="img" aria-label="نمودار بازده صعودی"><path d="M4 70 C24 63 40 48 58 55 S91 66 108 48 S138 34 155 43 S187 28 202 30 S220 10 236 12" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" /></svg>
+              <div className="luxe-roi-details"><span>ارزش هر واحد <b>۱۰۰٬۰۰۰٬۰۰۰</b></span><span>مدت پروژه <b>۲۴ ماه</b></span><span>تعداد سرمایه‌گذاران <b>۱٬۲۸۴</b></span></div>
+            </aside>
+            <div className="luxe-hero-whisper">آینده<br />ساخته می‌شود<br />با هم</div>
           </div>
         </section>
 
-        <section className="section shell">
-          <div className="section-heading">
-            <div><span className="mini-label">فرصت‌های توکن‌محور</span><h2>توکن بعدی‌ات را انتخاب کن.</h2></div>
-            <Link href="/projects" className="inline-link">مشاهدهٔ همه <ArrowLeft size={16} /></Link>
-          </div>
-          <div className="property-grid">
-            {properties.slice(0, 3).map((property, index) => <PropertyCard key={property.slug} property={property} featured={index === 0} />)}
-          </div>
+        <section className="luxe-metrics shell luxe-reveal luxe-delay-2">
+          <div><span className="luxe-metric-icon"><UsersRound size={21} /></span><strong>۱٬۲۸۴</strong><p>سرمایه‌گذار فعال</p></div>
+          <div><span className="luxe-metric-icon"><Building2 size={21} /></span><strong>۳۳</strong><p>پروژه در حال اجرا</p></div>
+          <div><span className="luxe-metric-icon"><ArrowUpRight size={21} /></span><strong>۲٬۴۶۰</strong><p>میلیارد تومان ارزش کل پروژه‌ها</p></div>
+          <div><span className="luxe-metric-icon"><ChartNoAxesCombined size={21} /></span><strong>۲۴٫۵</strong><p>میانگین بازدهی سالانه</p></div>
         </section>
 
-        <section className="section section-soft" id="tools">
-          <div className="shell">
-            <div className="section-heading">
-              <div><span className="mini-label">ابزارهای تصمیم</span><h2>قبل از خرید، سناریوها را امتحان کن.</h2></div>
-              <p>دو ابزار تعاملی برای تبدیل یک ایدهٔ مالی به تصمیمی قابل توضیح.</p>
-            </div>
-            <div className="toolkit-grid">
-              <InvestmentCalculator compact />
-              <AutoInvestPanel />
-            </div>
+        <section className="luxe-opportunities shell">
+          <div className="luxe-section-heading luxe-reveal"><div><p className="luxe-eyebrow">فرصت‌های منتخب</p><h2>ملک‌ها را ببینید،<br />آگاهانه انتخاب کنید.</h2></div><Link href="/projects" className="luxe-text-link">مشاهده همه فرصت‌ها <ArrowLeft size={17} /></Link></div>
+          <div className="luxe-opportunity-grid">
+            {opportunities.map((item, index) => <article className={`luxe-property-card luxe-reveal luxe-delay-${index + 1}`} key={item.title}>
+              <div className="luxe-property-image"><Image src={item.image} alt={item.title} fill sizes="(max-width: 700px) 100vw, 33vw" /><span>در حال تأمین مالی</span></div>
+              <div className="luxe-property-content"><p>{item.place}</p><h3>{item.title}</h3><div><span>بازده مورد انتظار <b>{item.rate}</b></span><span>تأمین مالی <b>٪{item.progress}</b></span></div><Link href={item.href}>جزئیات پروژه <ArrowLeft size={16} /></Link></div>
+            </article>)}
           </div>
         </section>
 
-        <section className="section architecture-section">
-          <div className="shell">
-            <div className="section-heading">
-              <div><span className="mini-label">مدل پلتفرمی خشت</span><h2>پول، پروژه و گزارش؛ در یک مسیر.</h2></div>
-              <p>{legalDisclaimerShort}</p>
-            </div>
-            <div className="architecture-flow">
-              <div className="flow-node"><span className="flow-icon"><WalletCards size={20} /></span><strong>بانک فرضی</strong><small>سپرده و تسویهٔ نمونه</small></div>
-              <ArrowUpLeft className="flow-arrow" size={22} />
-              <div className="flow-node accent"><span className="flow-icon"><Sparkles size={20} /></span><strong>توکن طلا شبیه‌سازی‌شده</strong><small>نگهداری موقت ارزش</small></div>
-              <ArrowUpLeft className="flow-arrow" size={22} />
-              <div className="flow-node"><span className="flow-icon"><Layers3 size={20} /></span><strong>توکن خشت پروژه</strong><small>واحد دیجیتال پروژه</small></div>
-              <ArrowUpLeft className="flow-arrow" size={22} />
-              <div className="flow-node"><span className="flow-icon"><BarChart3 size={20} /></span><strong>صندوق/صرافی فرضی</strong><small>بازار ثانویهٔ نمایشی</small></div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section section-soft">
-          <div className="shell">
-            <div className="section-heading"><div><span className="mini-label">از خرید تا گزارش</span><h2>چرخه‌ای که می‌شود دید.</h2></div><p>هر مرحله با وضعیت، تاریخ و سند نمونه همراه می‌شود.</p></div>
-            <div className="steps-grid">
-              <div className="step-card"><span className="step-number">۰۱ / VALUE</span><h3>ارزش‌گذاری</h3><p>ارزش پروژه و قیمت نمونهٔ توکن با گزارش دوره‌ای به‌روزرسانی می‌شود.</p></div>
-              <div className="step-card"><span className="step-number">۰۲ / GOLD</span><h3>توکن طلا</h3><p>توکن اولیه پیش از شروع پروژه در ابزار طلای فرضی نگهداری می‌شود.</p></div>
-              <div className="step-card"><span className="step-number">۰۳ / KH-Token</span><h3>توکن خشت</h3><p>پس از آغاز پروژه، واحد نمونه به توکن خشت همان پروژه تبدیل می‌شود.</p></div>
-              <div className="step-card"><span className="step-number">۰۴ / MARKET</span><h3>بازار ثانویه</h3><p>خریدوفروش نمایشی، با دفتر سفارش و شرط وجود خریدار نمایش داده می‌شود.</p></div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section shell" id="learn">
-          <div className="section-heading"><div><span className="mini-label">سه مسیر تجربه</span><h2>برای هر تصمیم، یک نمای روشن.</h2></div></div>
-          <div className="earn-grid">
-            <div className="earn-card red"><LockKeyhole size={25} /><h3>نگهداری بلندمدت</h3><p>دورهٔ نمونهٔ ۲۴ ماهه، کارمزد کمتر و بازدهی برآوردی بالاتر؛ بدون وعدهٔ قطعی.</p><span className="earn-metric">۲۴ <small>ماه نمونه</small></span></div>
-            <div className="earn-card"><Sparkles size={25} /><h3>حفاظت سرمایهٔ فرضی</h3><p>در سناریوی رکود فرضی، تبدیل موجودی به توکن طلا شبیه‌سازی می‌شود؛ بیمه یا تضمین واقعی نیست.</p><span className="earn-metric">۱٪ <small>کارمزد نمونه</small></span></div>
-          </div>
-        </section>
-
-        <section className="section section-soft">
-          <div className="shell">
-            <div className="section-heading"><div><span className="mini-label">الگوهای محصول خشت</span><h2>هر مسیر، یک نقطهٔ ورود دارد.</h2></div><Link href="/learn" className="inline-link">مجله و جامعه <ArrowLeft size={15} /></Link></div>
-            <div className="feature-bento">
-              <Link href="/finance" className="feature-tile feature-tile-red"><span className="feature-index">۰۱</span><strong> بررسی پیش از قرارداد </strong><p>پروژه را مرحله‌ای معرفی کن، سنجش اولیه بگیر و پروندهٔ گزارش بساز.</p><ArrowLeft size={17} /></Link>
-              <Link href="/guarantees" className="feature-tile"><span className="feature-index">۰۲</span><strong>اعتماد و کنترل ریسک</strong><p>قبل از دیدن بازده، اسناد، ارزش‌گذاری و مسیر خروج را مرور کن.</p><ShieldCheck size={19} /></Link>
-              <Link href="/faq" className="feature-tile"><span className="feature-index">۰۳</span><strong>پاسخ‌های روشن</strong><p>تفاوت توکن، گواهی دیجیتال و مالکیت رسمی را ساده بخوان.</p><FileText size={19} /></Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="shell cta-panel">
-          <div><span className="mini-label">قدم بعدی</span><h2>با یک پروژه شروع کن؛ با داده جلو برو.</h2><p>نسخهٔ نمایشی خشت برای دیدن جریان محصول ساخته شده است.</p></div>
-          <div className="cta-actions"><Link href="/projects" className="button button-red">دیدن فرصت‌ها <ArrowLeft size={15} /></Link><Link href="/auto-invest" className="button button-ghost">ساختن قواعد شخصی</Link></div>
-        </section>
-
-        <section className="section section-soft">
-          <div className="trust-section shell">
-            <div><span className="mini-label">گواهی و دسترسی</span><h2>هر توکن، یک پروندهٔ قابل‌خواندن دارد.</h2><p>به‌جای نمایش یک برگهٔ سهام، در محیط مفهومی خشت «گواهی مالکیت دیجیتال فرضی» و اتاق اسناد پروژه را می‌بینید.</p><div className="trust-list"><div><b><Check size={15} /></b><span>گزارش ارزش‌گذاری و پیشرفت دوره‌ای</span></div><div><b><Check size={15} /></b><span>سطح دسترسی برنزی، نقره‌ای، طلایی و تیتانیومی</span></div><div><b><Check size={15} /></b><span>تمایز روشن بین توکن، مشارکت اقتصادی و مالکیت رسمی</span></div></div></div>
-            <div className="trust-visual"><div className="trust-quote"><span>PROPERTY TOKEN OWNERSHIP CERTIFICATE</span><p>گواهی مشارکت دیجیتال فرضی؛ نه سند مالکیت رسمی.</p></div></div>
-          </div>
-        </section>
-
-        <section className="shell" id="risk"><div className="risk-banner"><div><h3>شفافیت قبل از بازده</h3><p>این نسخه فقط برای تجربهٔ محصول است؛ هیچ عددی پیشنهاد، تضمین یا تعهد مالی نیست.</p></div><Link href="/how-it-works#risk">مطالعهٔ ریسک‌ها <ArrowLeft size={14} /></Link></div></section>
+        <section className="luxe-process"><div className="shell luxe-process-grid"><div className="luxe-reveal"><p className="luxe-eyebrow">روش کار خشت</p><h2>سرمایه‌گذاری،<br />به سادگی چند قدم.</h2><p>همهٔ اطلاعات، وضعیت پیشرفت و مستندات پروژه در یک تجربهٔ شفاف و قابل پیگیری کنار شماست.</p><Link href="/how-it-works" className="luxe-text-link">آشنایی با نحوه کار <ArrowLeft size={17} /></Link></div><div className="luxe-process-steps luxe-reveal luxe-delay-2"><article><b>۰۱</b><h3>پروژه را انتخاب کنید</h3><p>فرصت‌ها را با اطلاعات مالی و مستندات کامل مقایسه کنید.</p></article><article><b>۰۲</b><h3>سرمایه‌گذاری کنید</h3><p>با مبلغ دلخواه و فرآیند شفاف، سهم خود را ثبت کنید.</p></article><article><b>۰۳</b><h3>رشد را دنبال کنید</h3><p>پیشرفت پروژه و وضعیت سبدتان را در داشبورد ببینید.</p></article></div></div></section>
       </main>
       <Footer />
     </>
