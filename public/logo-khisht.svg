@@ -1,0 +1,6 @@
+<svg width="112" height="32" viewBox="0 0 112 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="#D91F35"/>
+  <path d="M8 10.5 16 6l8 4.5v10L16 25l-8-4.5v-10Z" fill="white"/>
+  <path d="m8 10.5 8 4.6 8-4.6M16 15.1V25" stroke="#D91F35" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="39" y="22" fill="#181617" font-family="Arial, sans-serif" font-size="18" font-weight="700">خشت</text>
+</svg>
